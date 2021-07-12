@@ -1,0 +1,4 @@
+   Address    Value   Field             Category                      Setting           
+
+                    GCP     General Segment Code ProtectionDisabled                     
+    F8000C      C003  ICS     Comm Channel Select            Use PGC/EMUC and PGD/EMUD    

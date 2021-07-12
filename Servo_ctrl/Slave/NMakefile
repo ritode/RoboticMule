@@ -1,0 +1,35 @@
+# MPLAB IDE generated this makefile for use with Microsoft `nmake'.
+# Project: Slave.mcp
+# Date: Mon Feb 24 14:58:44 2020
+
+AS = pic30-as.exe
+CC = pic30-gcc.exe
+LD = pic30-ld.exe
+AR = pic30-ar.exe
+HX = pic30-bin2hex.exe
+RM = del
+
+"Slave.hex" : "Slave.cof"
+	$(HX) "Slave.cof"
+
+"Slave.cof" : "main.o" "can_hdlr.o" "motor_wrapper.o" "globals.o" "gpio_hdlr.o"
+	$(CC) -mcpu=30F4011 "main.o" "can_hdlr.o" "motor_wrapper.o" "globals.o" "gpio_hdlr.o" "C:\Program Files (x86)\Microchip\MPLAB C30\lib\libp30F4011-coff.a" -o"Slave.cof" -Wl,-L"C:\Program Files (x86)\Microchip\MPLAB C30\lib",--script="..\..\..\..\..\..\..\Program Files (x86)\Microchip\MPLAB C30\support\gld\p30f4011.gld",--defsym=__MPLAB_BUILD=1,-Map="Slave.map",--report-mem
+
+"main.o" : "motor_wrapper.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "globals.h" "main.c"
+	$(CC) -mcpu=30F4011 -x c -c "main.c" -o"main.o" -g -Wall
+
+"can_hdlr.o" : "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\peripheral_30F_24H_33F\can.h" "motor_wrapper.h" "can_hdlr.h" "gpio_hdlr.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "globals.h" "can_hdlr.c"
+	$(CC) -mcpu=30F4011 -x c -c "can_hdlr.c" -o"can_hdlr.o" -g -Wall
+
+"motor_wrapper.o" : "motor_wrapper.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\peripheral_30F_24H_33F\qei.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\peripheral_30F_24H_33F\pwm.h" "gpio_hdlr.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "globals.h" "motor_wrapper.c"
+	$(CC) -mcpu=30F4011 -x c -c "motor_wrapper.c" -o"motor_wrapper.o" -g -Wall
+
+"globals.o" : "can_hdlr.h" "motor_wrapper.h" "gpio_hdlr.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "globals.h" "globals.c"
+	$(CC) -mcpu=30F4011 -x c -c "globals.c" -o"globals.o" -g -Wall
+
+"gpio_hdlr.o" : "gpio_hdlr.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30f4011.h" "..\..\..\..\..\..\..\program files (x86)\microchip\mplab c30\support\h\p30fxxxx.h" "globals.h" "gpio_hdlr.c"
+	$(CC) -mcpu=30F4011 -x c -c "gpio_hdlr.c" -o"gpio_hdlr.o" -g -Wall
+
+"clean" : 
+	$(RM) "main.o" "can_hdlr.o" "motor_wrapper.o" "globals.o" "gpio_hdlr.o" "Slave.cof" "Slave.hex"
+

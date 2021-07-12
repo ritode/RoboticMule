@@ -1,0 +1,5 @@
+# Ignore VSCode files
+.vscode
+
+# Ignore the "ignore" folder
+ignore/
